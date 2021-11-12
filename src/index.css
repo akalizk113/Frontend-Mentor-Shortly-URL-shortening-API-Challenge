@@ -11,4 +11,15 @@ html, body {
    font-size: 1.125rem;
    font-weight: 500;
    line-height: 1.5;
+}  
+.brand-icon {
+   cursor: pointer;
+}
+.brand-icon path {
+   transition: all 0.2s;
+   fill: #fff;
+}
+
+.brand-icon:hover path {
+   fill: hsl(180, 66%, 49%);
 }

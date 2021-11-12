@@ -28,9 +28,15 @@ let theme = createTheme({
          color: { main: 'hsl(260, 8%, 14%)' },
          name: 'darkviolet',
       }),
+      error: {
+         main: 'hsl(0, 87%, 67%)',
+      },
       text: {
          primary: 'hsl(255, 11%, 22%)',
-         secondary: '',
+         secondary: 'hsl(257, 7%, 63%)',
+      },
+      background: {
+         paper: '#f0f1f6',
       },
    },
    breakpoints: {
@@ -55,6 +61,10 @@ let theme = createTheme({
          styleOverrides: {
             root: {
                color: '#fff',
+               '&:hover': {
+                  opacity: 0.6,
+                  backgroundColor: 'hsl(180, 66%, 49%)',
+               },
             },
             sizeExtra: {
                padding: '16px 40px',
@@ -66,20 +76,23 @@ let theme = createTheme({
                borderRadius: '30px',
             },
             sizeMedium: {
-               padding: '8px 20px',
+               padding: '8px 22px',
                borderRadius: '20px',
             },
          },
       },
       MuiTypography: {
          styleOverrides: {
-            root: {},
+            root: {
+               color: 'hsl(255, 11%, 22%)',
+               fontWeight: '500',
+            },
          },
       },
       MuiContainer: {
          styleOverrides: {
             maxWidthContentWidth: {
-               maxWidth: '1140',
+               maxWidth: '1158px',
             },
          },
       },

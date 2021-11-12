@@ -1,21 +1,22 @@
 import theme from './themes/theme';
 
-import { Container, ThemeProvider, Button } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
+import {
+   Header,
+   Illustration,
+   Shorten,
+   Statistics,
+   Footer,
+} from './components';
 
 function App() {
-   console.log(theme);
    return (
       <ThemeProvider theme={theme}>
-         <Container maxWidth="lg" className="App">
-            <Button
-               variant="contained"
-               color="primary"
-               size="medium"
-               sx={{ mt: 2 }}
-            >
-               Get Started
-            </Button>
-         </Container>
+         <Header />
+         <Illustration />
+         <Shorten />
+         <Statistics />
+         <Footer />
       </ThemeProvider>
    );
 }
