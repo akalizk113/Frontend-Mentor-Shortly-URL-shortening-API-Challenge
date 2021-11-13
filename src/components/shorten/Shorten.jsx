@@ -79,7 +79,7 @@ const Shorten = () => {
          do {
             shortedLink = genShortedLink();
          } while (sortedList.find((item) => item.shortedLink === shortedLink));
-         setSortedList((prev) => [...prev, { link: value, shortedLink }]);
+         setSortedList((prev) => [{ link: value, shortedLink }, ...prev]);
          setValue(``);
       } else {
          setMessage('Please add a link');
@@ -88,6 +88,7 @@ const Shorten = () => {
 
    const handleCopy = (e, shortedLink) => {
       const button = e.target;
+      console.log(e.target);
       button.classList.add('copied');
       button.innerText = 'copied';
       const elem = document.createElement('textarea');
@@ -202,9 +203,9 @@ const Shorten = () => {
                   </FormControl>
                </Box>
                <Stack pt="110px" direction="column" spacing={2}>
-                  {sortedList.reverse().map((item, index) => (
+                  {sortedList.map((item, index) => (
                      <Box
-                        key={index}
+                        key={item.shortedLink}
                         height={{ xs: '156px', sm: '72px' }}
                         p="16px 24px"
                         bgcolor="white"
@@ -237,6 +238,9 @@ const Shorten = () => {
                         <Divider
                            sx={{
                               borderColor: '#e5e5e5',
+                              display: {
+                                 sm: 'none',
+                              },
                            }}
                         />
                         <Typography
