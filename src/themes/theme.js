@@ -95,6 +95,14 @@ let theme = createTheme({
                [defaultTheme.breakpoints.down('md')]: {
                   fontSize: '2.6rem',
                },
+               [defaultTheme.breakpoints.down('sm')]: {
+                  fontSize: '2.2rem',
+               },
+            },
+            h4: {
+               [defaultTheme.breakpoints.down('sm')]: {
+                  fontSize: '1.4rem',
+               },
             },
          },
       },
@@ -102,6 +110,10 @@ let theme = createTheme({
          styleOverrides: {
             maxWidthContentWidth: {
                maxWidth: '1158px',
+            },
+            root: {
+               paddingLeft: '24px',
+               paddingRight: '24px',
             },
          },
       },

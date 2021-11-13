@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 const IllustrationImg = styled('img')(({ theme }) => ({
    position: 'absolute',
    right: '-120px',
-   [theme.breakpoints.between('sm', 'md')]: {
+   [theme.breakpoints.between('xs', 'md')]: {
       left: '24px',
       right: 'unset',
    },
@@ -35,7 +35,9 @@ const Illustration = () => {
                alt="illustrationImage"
                sx={{
                   maxWidth: {
-                     md: '570px',
+                     xs: '550px',
+                     sm: 'unset',
+                     md: '550px',
                      lg: 'unset',
                   },
                }}
@@ -43,10 +45,12 @@ const Illustration = () => {
             <Box
                sx={{
                   maxWidth: {
+                     xs: '100%',
                      sm: '550px',
                   },
                   pt: '80px',
                   mt: {
+                     xs: '320px',
                      sm: '500px',
                      md: 'unset',
                   },
@@ -67,7 +71,7 @@ const Illustration = () => {
                   mx="auto"
                   fontSize="htmlFontSize"
                   fontWeight="500"
-                  width="500px"
+                  width={{ xs: '100%', sm: '500px' }}
                >
                   Build your brand’s recognition and get detailed insights on
                   how your links are performing.

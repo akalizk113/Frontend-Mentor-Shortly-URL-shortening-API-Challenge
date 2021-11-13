@@ -122,9 +122,10 @@ const Footer = () => {
                      />
                   </svg>
                   <Stack
-                     direction="row"
+                     direction={{ xs: 'column', sm: 'row' }}
                      spacing={{
-                        xs: 'auto',
+                        xs: '46px',
+                        sm: 'auto',
                         md: '72px',
                      }}
                      sx={{
@@ -148,9 +149,20 @@ const Footer = () => {
                            xs: '100%',
                            md: 'unset',
                         },
+                        alignItems: {
+                           xs: 'center',
+                           sm: 'unset',
+                        },
                      }}
                   >
-                     <Box>
+                     <Box
+                        sx={{
+                           textAlign: {
+                              xs: 'center',
+                              sm: 'unset',
+                           },
+                        }}
+                     >
                         <StackTitle>Features</StackTitle>
                         <Stack direction="column" spacing="14px">
                            <StackItem>Link Shortening</StackItem>
@@ -158,7 +170,14 @@ const Footer = () => {
                            <StackItem>Analytics</StackItem>
                         </Stack>
                      </Box>
-                     <Box>
+                     <Box
+                        sx={{
+                           textAlign: {
+                              xs: 'center',
+                              sm: 'unset',
+                           },
+                        }}
+                     >
                         <StackTitle>Resources</StackTitle>
                         <Stack direction="column" spacing="14px">
                            <StackItem>Blog</StackItem>
@@ -166,7 +185,14 @@ const Footer = () => {
                            <StackItem>Support</StackItem>
                         </Stack>
                      </Box>
-                     <Box>
+                     <Box
+                        sx={{
+                           textAlign: {
+                              xs: 'center',
+                              sm: 'unset',
+                           },
+                        }}
+                     >
                         <StackTitle>Company</StackTitle>
                         <Stack direction="column" spacing="14px">
                            <StackItem>About</StackItem>

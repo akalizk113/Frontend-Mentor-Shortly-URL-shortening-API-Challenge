@@ -8,11 +8,12 @@ import {
    FormHelperText,
    Stack,
    Typography,
+   Divider,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 
-import { bgShortenDesktop } from '../../assets/resources';
+import { bgShortenDesktop, bgBoostMobile } from '../../assets/resources';
 const MyTextField = styled(Input)(({ theme }) => ({
    backgroundColor: '#fff',
    color: theme.palette.text.primary,
@@ -25,6 +26,9 @@ const MyTextField = styled(Input)(({ theme }) => ({
    '& input': {
       paddingLeft: '30px',
       paddingRight: '30px',
+      [theme.breakpoints.down('sm')]: {
+         height: '46px',
+      },
    },
    '&.Mui-error': {
       border: `2px solid ${theme.palette.error.main}`,
@@ -32,6 +36,10 @@ const MyTextField = styled(Input)(({ theme }) => ({
          display: 'none',
       },
       color: theme.palette.error.main,
+   },
+   [theme.breakpoints.down('sm')]: {
+      marginRight: '0',
+      width: '100%',
    },
 }));
 
@@ -48,7 +56,7 @@ const CopyButton = styled(Button)(({ theme }) => ({
 }));
 
 const expression =
-   /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+   /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)?/gi;
 const linkRegex = new RegExp(expression);
 
 const genShortedLink = () => {
@@ -109,7 +117,7 @@ const Shorten = () => {
             >
                <Box
                   width="100%"
-                  height={170}
+                  height={{ xs: '180px', sm: '170px' }}
                   bgcolor="#3a3053"
                   borderRadius={3}
                   sx={{
@@ -121,6 +129,11 @@ const Shorten = () => {
                      alignItems: 'center',
                      display: 'flex',
                      padding: '0 64px',
+                     '@media screen and (min-width: 375px) and (max-width: 599px)':
+                        {
+                           padding: '0 24px',
+                           backgroundImage: `url("${bgBoostMobile}")`,
+                        },
                   }}
                   component="form"
                   onSubmit={handleSubmit}
@@ -130,7 +143,10 @@ const Shorten = () => {
                      sx={{
                         display: 'flex',
                         alignItems: 'center',
-                        flexDirection: 'row',
+                        flexDirection: {
+                           xs: 'column',
+                           sm: 'row',
+                        },
                         flex: 1,
                         position: 'relative',
                      }}
@@ -152,6 +168,13 @@ const Shorten = () => {
                            fontSize: '16px',
                            fontStyle: 'italic',
                            ml: '3px',
+                           '@media screen and (min-width: 375px) and (max-width: 599px)':
+                              {
+                                 top: '50%',
+                                 left: 0,
+                                 transform: 'translateY(-50%)',
+                                 fontSize: '14px',
+                              },
                         }}
                      >
                         {message}
@@ -165,6 +188,12 @@ const Shorten = () => {
                               opacity: 1,
                               bgcolor: 'hsl(180, 42%, 78%)',
                            },
+                           '@media screen and (min-width: 375px) and (max-width: 599px)':
+                              {
+                                 width: '100%',
+                                 mt: '32px',
+                                 p: '9px 40px',
+                              },
                         }}
                         type="submit"
                      >
@@ -176,24 +205,66 @@ const Shorten = () => {
                   {sortedList.reverse().map((item, index) => (
                      <Box
                         key={index}
-                        height="72px"
+                        height={{ xs: '156px', sm: '72px' }}
                         p="16px 24px"
                         bgcolor="white"
                         borderRadius={1}
-                        sx={{ display: 'flex', alignItems: 'center' }}
+                        sx={{
+                           display: 'flex',
+                           alignItems: 'center',
+                           '@media screen and (min-width: 375px) and (max-width: 599px)':
+                              {
+                                 flexDirection: 'column',
+                                 alignItems: 'start',
+                                 p: 0,
+                              },
+                        }}
                      >
-                        <Typography variant="body1">{item.link}</Typography>
+                        <Typography
+                           variant="body1"
+                           sx={{
+                              '@media screen and (min-width: 375px) and (max-width: 599px)':
+                                 {
+                                    p: '14px 16px',
+                                    fontSize: '15px',
+                                    width: '100%',
+                                    borderBottom: '1px solid #e5e5e5',
+                                 },
+                           }}
+                        >
+                           {item.link}
+                        </Typography>
+                        <Divider
+                           sx={{
+                              borderColor: '#e5e5e5',
+                           }}
+                        />
                         <Typography
                            variant="body1"
                            color="primary"
                            ml="auto"
                            mr={3}
+                           sx={{
+                              '@media screen and (min-width: 375px) and (max-width: 599px)':
+                                 {
+                                    m: '14px 16px 10px',
+                                    fontSize: '15px',
+                                 },
+                           }}
                         >
                            {item.shortedLink}
                         </Typography>
                         <CopyButton
                            onClick={(e) => handleCopy(e, item.shortedLink)}
                            variant="contained"
+                           sx={{
+                              '@media screen and (min-width: 375px) and (max-width: 599px)':
+                                 {
+                                    m: '0 16px 14px',
+                                    flex: 1,
+                                    alignSelf: 'stretch',
+                                 },
+                           }}
                         >
                            Copy
                         </CopyButton>
