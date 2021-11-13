@@ -11,6 +11,7 @@ html, body {
    font-size: 1.125rem;
    font-weight: 500;
    line-height: 1.5;
+   overflow-x: hidden;
 }  
 .brand-icon {
    cursor: pointer;

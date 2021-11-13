@@ -87,6 +87,15 @@ let theme = createTheme({
                color: 'hsl(255, 11%, 22%)',
                fontWeight: '500',
             },
+            h2: {
+               fontSize: '4rem',
+               [defaultTheme.breakpoints.down('lg')]: {
+                  fontSize: '3.2rem',
+               },
+               [defaultTheme.breakpoints.down('md')]: {
+                  fontSize: '2.6rem',
+               },
+            },
          },
       },
       MuiContainer: {
@@ -99,6 +108,6 @@ let theme = createTheme({
    },
 });
 
-responsiveFontSizes(theme);
+responsiveFontSizes(theme, { breakpoints: ['xs', 'sm', 'md', 'lg'] });
 
 export default theme;

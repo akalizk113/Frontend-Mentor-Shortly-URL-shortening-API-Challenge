@@ -9,10 +9,16 @@ const NavItem = styled('span')(({ theme }) => ({
    color: theme.palette.text.secondary,
    fontWeight: '700',
    transition: 'all 0.3s ease',
-   margin: '0 16px   ',
+   margin: '0 16px',
    '&:hover': {
       cursor: 'pointer',
       color: theme.palette.text.primary,
+   },
+
+   [theme.breakpoints.between('sm', 'md')]: {
+      '&:not(:last-of-type)': {
+         margin: '0 12px',
+      },
    },
 }));
 
@@ -21,7 +27,14 @@ const Header = () => {
       <Container maxWidth="xl" className="header__wrapper">
          <Container
             maxWidth="contentWidth"
-            sx={{ display: 'flex', mt: '52px' }}
+            sx={{
+               display: 'flex',
+               mt: '52px',
+               p: {
+                  xs: '0',
+                  md: '0 24px',
+               },
+            }}
          >
             <img witdh={120} height={36} src={logoImg} alt="logo" />
 

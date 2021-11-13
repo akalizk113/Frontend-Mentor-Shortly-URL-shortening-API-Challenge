@@ -13,7 +13,16 @@ const Statistics = () => {
          }}
       >
          <Container maxWidth="xl">
-            <Container maxWidth="contentWidth" sx={{ textAlign: 'center' }}>
+            <Container
+               maxWidth="contentWidth"
+               sx={{
+                  textAlign: 'center',
+                  p: {
+                     xs: '0',
+                     md: '0 24px',
+                  },
+               }}
+            >
                <Typography variant="h4" fontWeight={700}>
                   Advanced Statistics
                </Typography>
@@ -30,7 +39,10 @@ const Statistics = () => {
                <Grid
                   container
                   spacing="30px"
-                  height="400px"
+                  height={{
+                     xs: 'unset',
+                     lg: '400px',
+                  }}
                   sx={{
                      mt: '60px',
                      position: 'relative',
@@ -44,6 +56,12 @@ const Statistics = () => {
                         width: '90%',
                         margin: 'auto',
                         bgcolor: 'primary.main',
+                        '@media screen and (min-width: 375px) and (max-width: 1199px)':
+                           {
+                              height: '80%',
+                              width: '8px',
+                              transform: 'translate(calc(-50% + 15px), -50%)',
+                           },
                      },
                   }}
                >

@@ -1,17 +1,62 @@
 import { Button, Container, Box, Typography } from '@mui/material';
 import { illustrationImg } from '../../assets/resources';
 import { styled } from '@mui/material/styles';
-const IllustrationImg = styled('img')({
+const IllustrationImg = styled('img')(({ theme }) => ({
    position: 'absolute',
    right: '-120px',
-});
+   [theme.breakpoints.between('sm', 'md')]: {
+      left: '24px',
+      right: 'unset',
+   },
+}));
 const Illustration = () => {
    return (
       <Container maxWidth="xl" sx={{ position: 'relative' }}>
-         <Container maxWidth="contentWidth" sx={{ mt: '80px' }}>
-            <IllustrationImg src={illustrationImg} alt="illustrationImage" />
-            <Box sx={{ width: '550px', pt: '80px' }}>
-               <Typography variant="h2" fontWeight="700" fontSize="4rem">
+         <Container
+            maxWidth="contentWidth"
+            sx={{
+               mt: '80px',
+               display: {
+                  xs: 'flex',
+                  md: 'block',
+               },
+               flexDirection: {
+                  xs: 'column',
+               },
+               alignItems: 'center',
+               p: {
+                  xs: '0',
+                  md: '0 24px',
+               },
+            }}
+         >
+            <IllustrationImg
+               src={illustrationImg}
+               alt="illustrationImage"
+               sx={{
+                  maxWidth: {
+                     md: '570px',
+                     lg: 'unset',
+                  },
+               }}
+            />
+            <Box
+               sx={{
+                  maxWidth: {
+                     sm: '550px',
+                  },
+                  pt: '80px',
+                  mt: {
+                     sm: '500px',
+                     md: 'unset',
+                  },
+                  textAlign: {
+                     xs: 'center',
+                     md: 'unset',
+                  },
+               }}
+            >
+               <Typography variant="h2" fontWeight="700">
                   More than just shorter links
                </Typography>
                <Typography
@@ -19,6 +64,7 @@ const Illustration = () => {
                   color="text.secondary"
                   mb="48px"
                   mt="8px"
+                  mx="auto"
                   fontSize="htmlFontSize"
                   fontWeight="500"
                   width="500px"

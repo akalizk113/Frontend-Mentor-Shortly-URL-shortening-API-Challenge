@@ -1,8 +1,5 @@
 import { Box, Container, Button, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { bgBoostDesktop, bgBoostMobile } from '../../assets/resources';
 const StackItem = styled('span')(({ theme }) => ({
    color: '#c3c1c4',
@@ -52,6 +49,10 @@ const Footer = () => {
                      alignItems: 'center',
                      justifyContent: 'center',
                      height: '100%',
+                     p: {
+                        xs: '0',
+                        md: '0 24px',
+                     },
                   }}
                >
                   <Typography
@@ -79,7 +80,7 @@ const Footer = () => {
          </Box>
          <Box
             sx={{
-               height: '310px',
+               minHeight: '310px',
                bgcolor: 'darkviolet.main',
                color: 'white',
             }}
@@ -96,6 +97,18 @@ const Footer = () => {
                      pt: '68px',
                      display: 'flex',
                      height: '100%',
+                     p: {
+                        xs: '68px 0 0',
+                        md: '68px 24px 0',
+                     },
+                     flexDirection: {
+                        xs: 'column',
+                        md: 'row',
+                     },
+                     alignItems: {
+                        xs: 'center',
+                        md: 'unset',
+                     },
                   }}
                >
                   <svg
@@ -110,12 +123,31 @@ const Footer = () => {
                   </svg>
                   <Stack
                      direction="row"
-                     spacing="72px"
+                     spacing={{
+                        xs: 'auto',
+                        md: '72px',
+                     }}
                      sx={{
-                        height: '100%',
-                        ml: '260px',
-                        flex: 1,
                         display: 'flex',
+                        height: {
+                           md: '100%',
+                        },
+                        ml: {
+                           xs: 0,
+                           md: 'auto',
+                        },
+                        mt: {
+                           xs: '50px',
+                           md: 'unset',
+                        },
+                        mb: {
+                           xs: '50px',
+                           md: 'unset',
+                        },
+                        width: {
+                           xs: '100%',
+                           md: 'unset',
+                        },
                      }}
                   >
                      <Box>
@@ -143,7 +175,14 @@ const Footer = () => {
                            <StackItem>Contact</StackItem>
                         </Stack>
                      </Box>
-                     <Box>
+                     <Box
+                        sx={{
+                           ml: {
+                              sm: 'auto',
+                              md: 'unset',
+                           },
+                        }}
+                     >
                         <Stack direction="row" spacing={3}>
                            <svg
                               xmlns="http://www.w3.org/2000/svg"

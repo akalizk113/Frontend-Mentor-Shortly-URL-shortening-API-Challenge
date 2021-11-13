@@ -98,17 +98,25 @@ const Shorten = () => {
             pb: '128px',
          }}
       >
-         <Container maxWidth="xl" sx={{ position: 'relative' }}>
-            <Container maxWidth="contentWidth">
+         <Container maxWidth="xl">
+            <Box
+               sx={{
+                  maxWidth: '1110px',
+                  padding: '0',
+                  m: '0 auto',
+                  position: 'relative',
+               }}
+            >
                <Box
-                  width={1110}
+                  width="100%"
                   height={170}
                   bgcolor="#3a3053"
                   borderRadius={3}
                   sx={{
                      position: 'absolute',
-                     top: '0%',
-                     transform: 'translateY(-50%)',
+                     top: '0',
+                     left: '50%',
+                     transform: 'translate(-50%, -50%)',
                      backgroundImage: `url("${bgShortenDesktop}")`,
                      alignItems: 'center',
                      display: 'flex',
@@ -192,7 +200,7 @@ const Shorten = () => {
                      </Box>
                   ))}
                </Stack>
-            </Container>
+            </Box>
          </Container>
       </Box>
    );
